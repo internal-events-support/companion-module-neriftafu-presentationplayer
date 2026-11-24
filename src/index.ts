@@ -1,24 +1,24 @@
 import { InstanceBase, InstanceStatus, createModuleLogger, type SomeCompanionConfigField } from '@companion-module/base'
 import { getActions } from './actions.js'
-import { PresenterApi, type PresenterState } from './api.js'
+import { PlayerApi, type PlayerState } from './api.js'
 import { type Config, defaultConfig, getConfigFields } from './config.js'
 import { getFeedbacks } from './feedbacks.js'
 import { getPresetDefinitions, presetStructure } from './presets.js'
-import type { PresenterTypes } from './types.js'
+import type { PlayerTypes } from './types.js'
 import { upgradeScripts } from './upgrades.js'
 import { variableDefinitions, variableValues } from './variables.js'
 
 const log = createModuleLogger('Main')
 
 /**
- * Companion connection for Google Slides NDI Presenter.
+ * Companion connection for Presentation Player.
  * Follows the app's state live over its event stream and sends commands to its HTTP API.
  */
-export default class GSlidesNdiPresenterInstance extends InstanceBase<PresenterTypes> {
+export default class PresentationPlayerInstance extends InstanceBase<PlayerTypes> {
   config: Config = defaultConfig()
   /** The latest state from the app, or null while disconnected. */
-  state: PresenterState | null = null
-  #api: PresenterApi | null = null
+  state: PlayerState | null = null
+  #api: PlayerApi | null = null
   #connected = false
 
   async init(config: Config): Promise<void> {
@@ -65,7 +65,7 @@ export default class GSlidesNdiPresenterInstance extends InstanceBase<PresenterT
     }
 
     this.updateStatus(InstanceStatus.Connecting)
-    this.#api = new PresenterApi(host, port, {
+    this.#api = new PlayerApi(host, port, {
       connected: () => {
         log.info(`Connected to ${host}:${port}`)
         this.#connected = true

@@ -1,6 +1,8 @@
-# companion-module-gslides-ndi-presenter
+# companion-module-nerif-tafu-presentationplayer
 
-A [Bitfocus Companion](https://bitfocus.io/companion) module for [Google Slides NDI Presenter](https://github.com/internal-events-support/google-slides-ndi-presenter), the Windows app that sends a Google Slides deck to NDI as live slides plus a presenter view with speaker notes.
+A [Bitfocus Companion](https://bitfocus.io/companion) module for [Presentation Player](https://github.com/internal-events-support/google-slides-ndi-presenter), the Windows app that sends a Google Slides deck to NDI as live slides plus a presenter view with speaker notes.
+
+The app used to be called Google Slides NDI Presenter, and so did this module before 2.0.0. Connections made with the old module carry on with this one, and older versions of the app still work.
 
 With it you can run the deck from a Stream Deck: next and previous, jump to slides, play videos, change the speaker notes, open and close decks, and see the state of everything on the buttons. See [companion/HELP.md](companion/HELP.md) for the full list of actions, feedbacks, variables and presets.
 
@@ -8,7 +10,7 @@ The module follows the app's state over its event stream (`/api/events`) rather 
 
 ## Installing
 
-Download the `.tgz` package from the latest [release](https://github.com/internal-events-support/companion-module-gslides-ndi-presenter/releases), then in Companion go to **Modules → Import module package** and pick that file. Add a "Google Slides NDI Presenter" connection and enter the address and port of the PC running the app.
+Download the `.tgz` package from the latest [release](https://github.com/internal-events-support/companion-module-nerif-tafu-presentationplayer/releases), then in Companion go to **Modules → Import module package** and pick that file. Add a "Presentation Player" connection and enter the address and port of the PC running the app.
 
 ## Development
 
@@ -22,7 +24,7 @@ yarn lint
 yarn companion-module-build   # package into a .tgz you can load into Companion
 ```
 
-To try it in Companion, point Companion's developer modules folder at the folder that contains this one, then add a "Google Slides NDI Presenter" connection.
+To try it in Companion, point Companion's developer modules folder at the folder that contains this one, then add a "Presentation Player" connection.
 
 Layout:
 
@@ -33,7 +35,7 @@ Layout:
 
 ## Releasing
 
-Publish a release on GitHub with a tag like `v1.1.0`. The Release workflow packages the module with that version and attaches the `.tgz` to the release. If a package ever needs rebuilding, run the workflow by hand from the Actions tab and give it the tag.
+Publish a release on GitHub with a tag like `v2.0.0`. The Release workflow packages the module with that version and attaches the `.tgz` to the release. If a package ever needs rebuilding, run the workflow by hand from the Actions tab and give it the tag.
 
 ## License
 

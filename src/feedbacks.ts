@@ -1,5 +1,6 @@
 import type { CompanionFeedbackDefinitions } from '@companion-module/base'
-import type GSlidesNdiPresenterInstance from './index.js'
+import { shownSlides } from './api.js'
+import type PresentationPlayerInstance from './index.js'
 
 type Bool<T extends Record<string, unknown> = Record<string, never>> = { type: 'boolean'; options: T }
 
@@ -15,6 +16,7 @@ export type FeedbacksSchema = {
   notesAutoFit: Bool
   notesCanScroll: Bool<{ direction: 'down' | 'up' }>
   receiversConnected: Bool<{ output: 'slides' | 'notes' }>
+  googleExpired: Bool
 }
 
 const WHITE = 0xffffff
@@ -23,7 +25,7 @@ const GREEN = 0x009933
 const PURPLE = 0x6a59f5
 const AMBER = 0xb36b00
 
-export function getFeedbacks(instance: GSlidesNdiPresenterInstance): CompanionFeedbackDefinitions<FeedbacksSchema> {
+export function getFeedbacks(instance: PresentationPlayerInstance): CompanionFeedbackDefinitions<FeedbacksSchema> {
   const s = () => instance.state
 
   return {
@@ -64,7 +66,8 @@ export function getFeedbacks(instance: GSlidesNdiPresenterInstance): CompanionFe
       options: [],
       callback: () => {
         const state = s()
-        return !!state && state.slideCount > 0 && state.slide <= 1
+        const first = shownSlides(state).at(0)
+        return !!state && first !== undefined && state.slide <= first
       },
     },
     atLastSlide: {
@@ -74,7 +77,8 @@ export function getFeedbacks(instance: GSlidesNdiPresenterInstance): CompanionFe
       options: [],
       callback: () => {
         const state = s()
-        return !!state && state.slideCount > 0 && state.slide >= state.slideCount
+        const last = shownSlides(state).at(-1)
+        return !!state && last !== undefined && state.slide >= last
       },
     },
     videoOnSlide: {
@@ -146,6 +150,14 @@ export function getFeedbacks(instance: GSlidesNdiPresenterInstance): CompanionFe
         if (!state) return false
         return (feedback.options.output === 'notes' ? state.notesReceivers : state.slidesReceivers) > 0
       },
+    },
+    googleExpired: {
+      type: 'boolean',
+      name: 'Google sign-in needed',
+      description: 'True when Google has signed the app out, until someone signs in again',
+      defaultStyle: { bgcolor: AMBER, color: WHITE },
+      options: [],
+      callback: () => !!s()?.googleExpired,
     },
   }
 }

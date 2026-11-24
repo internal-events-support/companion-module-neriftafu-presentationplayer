@@ -1,28 +1,28 @@
 {
   "$schema": "../node_modules/@companion-module/base/assets/manifest.schema.json",
   "type": "connection",
-  "id": "gslides-ndi-presenter",
-  "name": "gslides-ndi-presenter",
-  "shortname": "gslides-ndi",
-  "description": "Control Google Slides NDI Presenter: slides, video, speaker notes and output status",
+  "id": "nerif-tafu-presentationplayer",
+  "name": "nerif-tafu-presentationplayer",
+  "shortname": "presentationplayer",
+  "description": "Control Presentation Player: slides, video, speaker notes and output status",
   "version": "0.0.0",
   "license": "MIT",
-  "repository": "git+https://github.com/internal-events-support/companion-module-gslides-ndi-presenter.git",
-  "bugs": "https://github.com/internal-events-support/companion-module-gslides-ndi-presenter/issues",
+  "repository": "git+https://github.com/internal-events-support/companion-module-nerif-tafu-presentationplayer.git",
+  "bugs": "https://github.com/internal-events-support/companion-module-nerif-tafu-presentationplayer/issues",
   "maintainers": [
     {
       "name": "nerif-tafu",
       "url": "https://github.com/nerif-tafu"
     }
   ],
-  "legacyIds": [],
+  "legacyIds": ["gslides-ndi-presenter"],
   "runtime": {
     "type": "node22",
     "api": "nodejs-ipc",
     "apiVersion": "0.0.0",
     "entrypoint": "../dist/index.js"
   },
-  "manufacturer": "Google Slides NDI Presenter",
-  "products": ["Google Slides NDI Presenter"],
+  "manufacturer": "nerif-tafu",
+  "products": ["Presentation Player"],
   "keywords": ["Presentation", "Google Slides", "Slides", "NDI", "Software"]
 }

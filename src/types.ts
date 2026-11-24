@@ -3,7 +3,7 @@ import type { Config } from './config.js'
 import type { FeedbacksSchema } from './feedbacks.js'
 import type { VariablesSchema } from './variables.js'
 
-export interface PresenterTypes {
+export interface PlayerTypes {
   config: Config
   secrets: undefined
   actions: ActionsSchema

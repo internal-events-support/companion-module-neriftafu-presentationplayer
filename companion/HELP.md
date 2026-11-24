@@ -1,6 +1,6 @@
-## Google Slides NDI Presenter
+## Presentation Player
 
-Controls [Google Slides NDI Presenter](https://github.com/internal-events-support/google-slides-ndi-presenter), the Windows app that sends a Google Slides deck to NDI as live slides plus a presenter view with speaker notes.
+Controls [Presentation Player](https://github.com/internal-events-support/google-slides-ndi-presenter), the Windows app that sends a Google Slides deck to NDI as live slides plus a presenter view with speaker notes.
 
 ### Setting up
 
@@ -12,42 +12,44 @@ The connection follows the app live, so feedbacks and variables update as soon a
 
 ### Actions
 
-| Action                    | What it does                                                                           |
-| ------------------------- | -------------------------------------------------------------------------------------- |
-| Next / Previous           | Steps through animation builds, then slides, the same as a clicker                     |
-| Go to slide               | Jumps to a slide number (variables allowed)                                            |
-| Go to first or last slide |                                                                                        |
-| Open presentation         | Opens a deck from its share link. It must be shared as "Anyone with the link can view" |
-| Refresh presentation      | Pulls in edits made in Google Slides, staying on the current slide                     |
-| Close presentation        | Both NDI outputs go to the holding screen                                              |
-| Video or audio            | Play / pause, play, pause, or back to the start, for the video or audio on the slide   |
-| Notes text size           | Bigger, smaller, or a set size. Changing the size turns auto-fit off                   |
-| Notes auto-fit            | Toggle, on or off                                                                      |
-| Notes scroll              | Down, up, or back to the top                                                           |
+| Action                    | What it does                                                                                                                                                                                                                                |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Next / Previous           | Steps through animation builds, then slides, the same as a clicker                                                                                                                                                                          |
+| Go to slide               | Jumps to a slide number (variables allowed). A skipped slide goes to the next one that's shown                                                                                                                                              |
+| Go to first or last slide | The first or last slide that isn't skipped                                                                                                                                                                                                  |
+| Open presentation         | Opens a deck from its share link. It must be shared as "Anyone with the link can view", or with the Google account the app is signed in to. For a master deck (app 1.7.0 and later) put `master:` and its name, e.g. `master:Day 1 plenary` |
+| Refresh presentation      | Pulls in edits made in Google Slides, staying on the current slide                                                                                                                                                                          |
+| Close presentation        | Both NDI outputs go to the holding screen                                                                                                                                                                                                   |
+| Video or audio            | Play / pause, play, pause, or back to the start, for the video or audio on the slide                                                                                                                                                        |
+| Notes text size           | Bigger, smaller, or a set size. Changing the size turns auto-fit off                                                                                                                                                                        |
+| Notes auto-fit            | Toggle, on or off                                                                                                                                                                                                                           |
+| Notes scroll              | Down, up, or back to the top                                                                                                                                                                                                                |
 
 ### Feedbacks
 
-Presentation is open · Presentation is loading · Presentation updated in Google Slides · Current slide is… · On the first slide · On the last slide · Current slide has video or audio · Video or audio is playing · Notes auto-fit is on · Notes can scroll (up/down) · NDI output has receivers
+Presentation is open · Presentation is loading · Presentation updated in Google Slides · Current slide is… · On the first slide · On the last slide · Current slide has video or audio · Video or audio is playing · Notes auto-fit is on · Notes can scroll (up/down) · NDI output has receivers · Google sign-in needed
 
 ### Variables
 
-| Variable                                                                               |                                                                         |
-| -------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `$(gslides-ndi:title)`                                                                 | Presentation title                                                      |
-| `$(gslides-ndi:slide)` / `$(gslides-ndi:slide_count)`                                  | Current slide and total                                                 |
-| `$(gslides-ndi:next_slide)`                                                            | Next slide number, empty on the last slide                              |
-| `$(gslides-ndi:slides_remaining)`                                                      | Slides left after this one                                              |
-| `$(gslides-ndi:loading)`                                                               | true while a deck is opening or refreshing                              |
-| `$(gslides-ndi:out_of_date)`                                                           | true when the deck has been edited in Google Slides since it was loaded |
-| `$(gslides-ndi:notes_size)` / `$(gslides-ndi:notes_autofit)`                           | Notes text size in px, and whether auto-fit is on                       |
-| `$(gslides-ndi:video)` / `$(gslides-ndi:video_state)` / `$(gslides-ndi:video_quality)` | Whether the slide has video or audio, its state, and the video's quality (e.g. 720p) |
-| `$(gslides-ndi:media_kind)` | `video`, `audio`, or empty |
-| `$(gslides-ndi:media_position)` / `$(gslides-ndi:media_duration)` / `$(gslides-ndi:media_remaining)` | Position, length and time left, e.g. 0:42 / 3:34 / 2:52 |
-| `$(gslides-ndi:slides_receivers)` / `$(gslides-ndi:notes_receivers)`                   | NDI receivers watching each output                                      |
-| `$(gslides-ndi:slides_ndi_name)` / `$(gslides-ndi:notes_ndi_name)`                     | NDI names of the outputs                                                |
-| `$(gslides-ndi:connected)`                                                             | Whether Companion can reach the app                                     |
+| Variable                                                                                                                  |                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `$(presentationplayer:title)`                                                                                             | Presentation title                                                                        |
+| `$(presentationplayer:slide)` / `$(presentationplayer:slide_count)`                                                       | Current slide and total. From app 1.7.0 these count skipped slides, as Google Slides does |
+| `$(presentationplayer:next_slide)`                                                                                        | Next slide that's shown, empty on the last one                                            |
+| `$(presentationplayer:slides_remaining)`                                                                                  | Slides left after this one, not counting skipped ones                                     |
+| `$(presentationplayer:skipped_count)`                                                                                     | Number of skipped slides                                                                  |
+| `$(presentationplayer:google_expired)`                                                                                    | true when the app needs signing in to Google again                                        |
+| `$(presentationplayer:loading)`                                                                                           | true while a deck is opening or refreshing                                                |
+| `$(presentationplayer:out_of_date)`                                                                                       | true when the deck has been edited in Google Slides since it was loaded                   |
+| `$(presentationplayer:notes_size)` / `$(presentationplayer:notes_autofit)`                                                | Notes text size in px, and whether auto-fit is on                                         |
+| `$(presentationplayer:video)` / `$(presentationplayer:video_state)` / `$(presentationplayer:video_quality)`               | Whether the slide has video or audio, its state, and the video's quality (e.g. 720p)      |
+| `$(presentationplayer:media_kind)`                                                                                        | `video`, `audio`, or empty                                                                |
+| `$(presentationplayer:media_position)` / `$(presentationplayer:media_duration)` / `$(presentationplayer:media_remaining)` | Position, length and time left, e.g. 0:42 / 3:34 / 2:52                                   |
+| `$(presentationplayer:slides_receivers)` / `$(presentationplayer:notes_receivers)`                                        | NDI receivers watching each output                                                        |
+| `$(presentationplayer:slides_ndi_name)` / `$(presentationplayer:notes_ndi_name)`                                          | NDI names of the outputs                                                                  |
+| `$(presentationplayer:connected)`                                                                                         | Whether Companion can reach the app                                                       |
 
-Replace `gslides-ndi` with your connection's label if you renamed it.
+Replace `presentationplayer` with your connection's label if it's different. Connections made before 2.0.0 keep the label they had, such as `gslides-ndi`.
 
 ### Presets
 

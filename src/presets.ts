@@ -1,5 +1,5 @@
 import type { CompanionPresetDefinitions, CompanionPresetSection, CompanionButtonStyleProps } from '@companion-module/base'
-import type { PresenterTypes } from './types.js'
+import type { PlayerTypes } from './types.js'
 
 const WHITE = 0xffffff
 const BLACK = 0x000000
@@ -25,9 +25,9 @@ const style = (text: string, extra: Partial<CompanionButtonStyleProps> = {}): Co
 /**
  * @param label the connection label, used to reference this connection's variables in button text
  */
-export function getPresetDefinitions(label: string): CompanionPresetDefinitions<PresenterTypes> {
+export function getPresetDefinitions(label: string): CompanionPresetDefinitions<PlayerTypes> {
   const v = (name: string): string => `$(${label}:${name})`
-  const presets: CompanionPresetDefinitions<PresenterTypes> = {
+  const presets: CompanionPresetDefinitions<PlayerTypes> = {
     // ---- Navigation ----
     previous: {
       type: 'simple',
@@ -194,7 +194,7 @@ export function getPresetDefinitions(label: string): CompanionPresetDefinitions<
   return presets
 }
 
-export const presetStructure: CompanionPresetSection<PresenterTypes>[] = [
+export const presetStructure: CompanionPresetSection<PlayerTypes>[] = [
   {
     id: 'navigation',
     name: 'Navigation',

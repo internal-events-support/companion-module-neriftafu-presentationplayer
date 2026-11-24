@@ -18,7 +18,7 @@ export const getConfigFields = (): SomeCompanionConfigField[] => [
     width: 12,
     label: 'Connection',
     value:
-      'Enter the address of the PC running Google Slides NDI Presenter and its remote control port (8080 unless you changed it in the app’s Settings). ' +
+      'Enter the address of the PC running Presentation Player and its remote control port (8080 unless you changed it in the app’s Settings). ' +
       'If Companion runs on another machine, “Allow other devices” must be on in the app’s Settings.',
   },
   {

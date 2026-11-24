@@ -1,5 +1,5 @@
 import type { CompanionActionDefinitions } from '@companion-module/base'
-import type GSlidesNdiPresenterInstance from './index.js'
+import type PresentationPlayerInstance from './index.js'
 import type { EmptyOptions } from './types.js'
 
 export type ActionsSchema = {
@@ -16,7 +16,7 @@ export type ActionsSchema = {
   notesScroll: { options: { direction: 'down' | 'up' | 'top' } }
 }
 
-export function getActions(instance: GSlidesNdiPresenterInstance): CompanionActionDefinitions<ActionsSchema> {
+export function getActions(instance: PresentationPlayerInstance): CompanionActionDefinitions<ActionsSchema> {
   const send = async (path: string, body?: unknown): Promise<void> => {
     try {
       await instance.sendCommand(path, body)
@@ -47,7 +47,7 @@ export function getActions(instance: GSlidesNdiPresenterInstance): CompanionActi
           label: 'Slide number',
           default: '1',
           useVariables: true,
-          description: 'Counting from 1. Variables are allowed.',
+          description: 'Counting from 1, skipped slides included. A skipped slide goes to the next one that’s shown. Variables are allowed.',
         },
       ],
       callback: async (action) => {
@@ -76,17 +76,20 @@ export function getActions(instance: GSlidesNdiPresenterInstance): CompanionActi
       callback: async (action) => {
         const count = instance.state?.slideCount ?? 0
         if (count === 0) return
+        // If that slide is skipped, the app goes to the next one that's shown, or the last one shown.
         await send(`goto/${action.options.target === 'last' ? count : 1}`)
       },
     },
     openPresentation: {
       name: 'Open presentation',
-      description: 'Opens a Google Slides deck from its share link. It must be shared as “Anyone with the link can view”.',
+      description:
+        'Opens a Google Slides deck from its share link. It must be shared as “Anyone with the link can view”, or with the Google account the app is signed in to. ' +
+        'For a master deck, put master: and its name, e.g. master:Day 1 plenary.',
       options: [
         {
           type: 'textinput',
           id: 'url',
-          label: 'Google Slides link',
+          label: 'Google Slides link, or master: and a name',
           default: '',
           useVariables: true,
         },

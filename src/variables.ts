@@ -1,5 +1,5 @@
 import type { CompanionVariableDefinitions } from '@companion-module/base'
-import type { PresenterState } from './api.js'
+import { shownSlides, type PlayerState } from './api.js'
 import { QUALITY_LABELS } from './types.js'
 
 export type VariablesSchema = {
@@ -9,6 +9,8 @@ export type VariablesSchema = {
   slide_count: number
   slides_remaining: number
   next_slide: string
+  skipped_count: number
+  google_expired: boolean
   loading: boolean
   out_of_date: boolean
   notes_size: number
@@ -30,9 +32,11 @@ export const variableDefinitions: CompanionVariableDefinitions<VariablesSchema> 
   connected: { name: 'Connected to the app' },
   title: { name: 'Presentation title' },
   slide: { name: 'Current slide number' },
-  slide_count: { name: 'Number of slides' },
-  slides_remaining: { name: 'Slides left after this one' },
+  slide_count: { name: 'Number of slides, skipped ones included' },
+  slides_remaining: { name: 'Slides left after this one, not counting skipped ones' },
   next_slide: { name: 'Next slide number (empty on the last slide)' },
+  skipped_count: { name: 'Number of skipped slides' },
+  google_expired: { name: 'App needs signing in to Google again' },
   loading: { name: 'Presentation is loading' },
   out_of_date: { name: 'Presentation has been updated in Google Slides since it was loaded' },
   notes_size: { name: 'Notes text size in px (the fitted size while auto-fit is on)' },
@@ -50,18 +54,21 @@ export const variableDefinitions: CompanionVariableDefinitions<VariablesSchema> 
   notes_ndi_name: { name: 'NDI name of the presenter view output' },
 }
 
-export function variableValues(state: PresenterState | null, connected: boolean): VariablesSchema {
+export function variableValues(state: PlayerState | null, connected: boolean): VariablesSchema {
   const open = !!state?.presentationId || (state?.slideCount ?? 0) > 0
   const slide = state?.slide ?? 0
   const count = state?.slideCount ?? 0
+  const left = shownSlides(state).filter((n) => n > slide)
   const video = state?.video ?? null
   return {
     connected,
     title: open ? (state?.title ?? '') : '',
     slide,
     slide_count: count,
-    slides_remaining: Math.max(0, count - slide),
-    next_slide: count > 0 && slide < count ? String(slide + 1) : '',
+    slides_remaining: left.length,
+    next_slide: left.length > 0 ? String(left[0]) : '',
+    skipped_count: state?.skipped?.length ?? 0,
+    google_expired: !!state?.googleExpired,
     loading: !!state?.loading,
     out_of_date: !!state?.outOfDate,
     notes_size: Math.round((state?.notesAutoFit ? state.notesEffectiveFontSize : state?.notesFontSize) ?? 0),

@@ -15,13 +15,28 @@ export interface VideoInfo {
   duration?: number
 }
 
+export interface MasterDeck {
+  id: string
+  name: string
+  parts: { url: string; title: string; skipStart: number; skipEnd: number }[]
+}
+
 /** The state document the app publishes on /api/state and /api/events. */
-export interface PresenterState {
+export interface PlayerState {
   url: string
   presentationId: string | null
   title: string | null
+  /** Numbered as in Google Slides, so skipped slides count too (they didn't before app 1.7). */
   slide: number
   slideCount: number
+  /** Numbers of the skipped slides, which are never shown (app 1.7+). */
+  skipped?: number[]
+  /** A master deck (several decks played as one) is open (app 1.7+). */
+  isMaster?: boolean
+  /** The saved master decks; "master:" and the name opens one (app 1.7+). */
+  masterDecks?: MasterDeck[]
+  /** Google has ended the app's session, so it needs signing in again (app 1.7+). */
+  googleExpired?: boolean
   notesFontSize: number
   notesAutoFit: boolean
   notesEffectiveFontSize: number
@@ -45,9 +60,15 @@ export interface PresenterState {
   liveError: string | null
 }
 
+/** Numbers of the slides that are shown, in order: all of them except the skipped ones. */
+export function shownSlides(state: PlayerState | null): number[] {
+  const skipped = new Set(state?.skipped ?? [])
+  return Array.from({ length: state?.slideCount ?? 0 }, (_, i) => i + 1).filter((n) => !skipped.has(n))
+}
+
 export interface ApiEvents {
   /** A new state arrived (also fired right after connecting). */
-  state: (state: PresenterState) => void
+  state: (state: PlayerState) => void
   /** The live connection was established. */
   connected: () => void
   /** The live connection dropped or couldn't be made; it will retry on its own. */
@@ -58,7 +79,7 @@ export interface ApiEvents {
  * Talks to the app's HTTP API. State is followed live through the Server-Sent Events stream
  * at /api/events, which the app pushes to whenever anything changes, so no polling is needed.
  */
-export class PresenterApi {
+export class PlayerApi {
   readonly #baseUrl: string
   readonly #events: ApiEvents
   #abort: AbortController | null = null
@@ -149,7 +170,7 @@ export class PresenterApi {
 
   #handleData(data: string): void {
     try {
-      this.#events.state(JSON.parse(data) as PresenterState)
+      this.#events.state(JSON.parse(data) as PlayerState)
     } catch (err) {
       log.warn(`Ignoring malformed state from the app: ${describeError(err)}`)
     }
