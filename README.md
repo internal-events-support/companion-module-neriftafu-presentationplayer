@@ -1,6 +1,6 @@
 # companion-module-neriftafu-presentationplayer
 
-A [Bitfocus Companion](https://bitfocus.io/companion) module for [Presentation Player](https://github.com/internal-events-support/google-slides-ndi-presenter), the Windows app that sends a Google Slides deck to NDI as live slides plus a presenter view with speaker notes.
+A [Bitfocus Companion](https://bitfocus.io/companion) module for [Presentation Player](https://github.com/internal-events-support/presentation-player), the Windows app that sends a Google Slides deck to NDI as live slides plus a presenter view with speaker notes.
 
 The app used to be called Google Slides NDI Presenter, and so did this module before 2.0.0. Connections made with the old module carry on with this one, and older versions of the app still work.
 

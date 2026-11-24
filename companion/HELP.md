@@ -1,6 +1,6 @@
 ## Presentation Player
 
-Controls [Presentation Player](https://github.com/internal-events-support/google-slides-ndi-presenter), the Windows app that sends a Google Slides deck to NDI as live slides plus a presenter view with speaker notes.
+Controls [Presentation Player](https://github.com/internal-events-support/presentation-player), the Windows app that sends a Google Slides deck to NDI as live slides plus a presenter view with speaker notes.
 
 ### Setting up
 
