@@ -7,8 +7,8 @@
   "description": "Control Google Slides NDI Presenter: slides, video, speaker notes and output status",
   "version": "0.0.0",
   "license": "MIT",
-  "repository": "git+https://github.com/nerif-tafu/companion-module-gslides-ndi-presenter.git",
-  "bugs": "https://github.com/nerif-tafu/companion-module-gslides-ndi-presenter/issues",
+  "repository": "git+https://github.com/internal-events-support/companion-module-gslides-ndi-presenter.git",
+  "bugs": "https://github.com/internal-events-support/companion-module-gslides-ndi-presenter/issues",
   "maintainers": [
     {
       "name": "nerif-tafu",

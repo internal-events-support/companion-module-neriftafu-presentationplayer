@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nerif-tafu/companion-module-gslides-ndi-presenter.git"
+    "url": "git+https://github.com/internal-events-support/companion-module-gslides-ndi-presenter.git"
   },
   "license": "MIT",
   "engines": {

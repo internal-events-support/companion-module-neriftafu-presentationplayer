@@ -1,6 +1,6 @@
 ## Google Slides NDI Presenter
 
-Controls [Google Slides NDI Presenter](https://github.com/nerif-tafu/google-slides-ndi-presenter), the Windows app that sends a Google Slides deck to NDI as live slides plus a presenter view with speaker notes.
+Controls [Google Slides NDI Presenter](https://github.com/internal-events-support/google-slides-ndi-presenter), the Windows app that sends a Google Slides deck to NDI as live slides plus a presenter view with speaker notes.
 
 ### Setting up
 

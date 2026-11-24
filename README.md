@@ -1,6 +1,6 @@
 # companion-module-gslides-ndi-presenter
 
-A [Bitfocus Companion](https://bitfocus.io/companion) module for [Google Slides NDI Presenter](https://github.com/nerif-tafu/google-slides-ndi-presenter), the Windows app that sends a Google Slides deck to NDI as live slides plus a presenter view with speaker notes.
+A [Bitfocus Companion](https://bitfocus.io/companion) module for [Google Slides NDI Presenter](https://github.com/internal-events-support/google-slides-ndi-presenter), the Windows app that sends a Google Slides deck to NDI as live slides plus a presenter view with speaker notes.
 
 With it you can run the deck from a Stream Deck: next and previous, jump to slides, play videos, change the speaker notes, open and close decks, and see the state of everything on the buttons. See [companion/HELP.md](companion/HELP.md) for the full list of actions, feedbacks, variables and presets.
 
@@ -8,7 +8,7 @@ The module follows the app's state over its event stream (`/api/events`) rather 
 
 ## Installing
 
-Download the `.tgz` package from the latest [release](https://github.com/nerif-tafu/companion-module-gslides-ndi-presenter/releases), then in Companion go to **Modules → Import module package** and pick that file. Add a "Google Slides NDI Presenter" connection and enter the address and port of the PC running the app.
+Download the `.tgz` package from the latest [release](https://github.com/internal-events-support/companion-module-gslides-ndi-presenter/releases), then in Companion go to **Modules → Import module package** and pick that file. Add a "Google Slides NDI Presenter" connection and enter the address and port of the PC running the app.
 
 ## Development
 
