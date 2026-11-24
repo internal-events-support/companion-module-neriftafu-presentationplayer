@@ -1460,9 +1460,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nerif-tafu-presentationplayer@workspace:.":
+"neriftafu-presentationplayer@workspace:.":
   version: 0.0.0-use.local
-  resolution: "nerif-tafu-presentationplayer@workspace:."
+  resolution: "neriftafu-presentationplayer@workspace:."
   dependencies:
     "@companion-module/base": "npm:~2.0.4"
     "@companion-module/tools": "npm:3.1.0"

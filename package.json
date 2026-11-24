@@ -1,5 +1,5 @@
 {
-  "name": "nerif-tafu-presentationplayer",
+  "name": "neriftafu-presentationplayer",
   "version": "2.0.0",
   "main": "dist/index.js",
   "type": "module",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/internal-events-support/companion-module-nerif-tafu-presentationplayer.git"
+    "url": "git+https://github.com/internal-events-support/companion-module-neriftafu-presentationplayer.git"
   },
   "license": "MIT",
   "engines": {

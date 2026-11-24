@@ -1,4 +1,4 @@
-# companion-module-nerif-tafu-presentationplayer
+# companion-module-neriftafu-presentationplayer
 
 A [Bitfocus Companion](https://bitfocus.io/companion) module for [Presentation Player](https://github.com/internal-events-support/google-slides-ndi-presenter), the Windows app that sends a Google Slides deck to NDI as live slides plus a presenter view with speaker notes.
 
@@ -10,7 +10,7 @@ The module follows the app's state over its event stream (`/api/events`) rather 
 
 ## Installing
 
-Download the `.tgz` package from the latest [release](https://github.com/internal-events-support/companion-module-nerif-tafu-presentationplayer/releases), then in Companion go to **Modules → Import module package** and pick that file. Add a "Presentation Player" connection and enter the address and port of the PC running the app.
+Download the `.tgz` package from the latest [release](https://github.com/internal-events-support/companion-module-neriftafu-presentationplayer/releases), then in Companion go to **Modules → Import module package** and pick that file. Add a "Presentation Player" connection and enter the address and port of the PC running the app.
 
 ## Development
 

@@ -53,5 +53,5 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          package=$(ls nerif-tafu-presentationplayer-*.tgz | head -n 1)
+          package=$(ls neriftafu-presentationplayer-*.tgz | head -n 1)
           gh release upload "${{ steps.version.outputs.tag }}" "$package" --clobber --repo "${{ github.repository }}"

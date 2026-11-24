@@ -1,14 +1,14 @@
 {
   "$schema": "../node_modules/@companion-module/base/assets/manifest.schema.json",
   "type": "connection",
-  "id": "nerif-tafu-presentationplayer",
-  "name": "nerif-tafu-presentationplayer",
+  "id": "neriftafu-presentationplayer",
+  "name": "neriftafu-presentationplayer",
   "shortname": "presentationplayer",
   "description": "Control Presentation Player: slides, video, speaker notes and output status",
   "version": "0.0.0",
   "license": "MIT",
-  "repository": "git+https://github.com/internal-events-support/companion-module-nerif-tafu-presentationplayer.git",
-  "bugs": "https://github.com/internal-events-support/companion-module-nerif-tafu-presentationplayer/issues",
+  "repository": "git+https://github.com/internal-events-support/companion-module-neriftafu-presentationplayer.git",
+  "bugs": "https://github.com/internal-events-support/companion-module-neriftafu-presentationplayer/issues",
   "maintainers": [
     {
       "name": "nerif-tafu",
@@ -22,7 +22,7 @@
     "apiVersion": "0.0.0",
     "entrypoint": "../dist/index.js"
   },
-  "manufacturer": "nerif-tafu",
+  "manufacturer": "neriftafu",
   "products": ["Presentation Player"],
   "keywords": ["Presentation", "Google Slides", "Slides", "NDI", "Software"]
 }
