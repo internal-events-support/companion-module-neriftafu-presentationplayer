@@ -1,8 +1,8 @@
 # companion-module-neriftafu-presentationplayer
 
-A [Bitfocus Companion](https://bitfocus.io/companion) module for [Presentation Player](https://github.com/internal-events-support/presentation-player), the Windows app that sends a Google Slides deck to NDI as live slides plus a presenter view with speaker notes.
+A [Bitfocus Companion](https://bitfocus.io/companion) module for [Presentation Player](https://github.com/internal-events-support/presentation-player), the Windows app that runs Google Slides, PowerPoint and PDF presentations, with the slides and a presenter view with speaker notes over NDI, on displays or in windows.
 
-With it you can run the deck from a Stream Deck: next and previous, jump to slides, play videos, change the speaker notes, open and close decks, and see the state of everything on the buttons. See [companion/HELP.md](companion/HELP.md) for the full list of actions, feedbacks, variables and presets.
+With it you can run the deck from a Stream Deck: next and previous, jump to slides, play videos, change the speaker notes, open and close presentations, and see the state of everything on the buttons. See [companion/HELP.md](companion/HELP.md) for the full list of actions, feedbacks, variables and presets.
 
 The module follows the app's state over its event stream (`/api/events`) rather than polling, so buttons update straight away. Commands go to the app's HTTP API.
 

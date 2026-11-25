@@ -86,12 +86,13 @@ export function getActions(instance: PresentationPlayerInstance): CompanionActio
 			name: 'Open presentation',
 			description:
 				'Opens a Google Slides deck from its share link. It must be shared as “Anyone with the link can view”, or with the Google account the app is signed in to. ' +
+				'For a PowerPoint or PDF file (app 2.0.0 and later), put its full path on the PC running the app; it must have been opened in the app before. ' +
 				'For a master deck, put master: and its name, e.g. master:Day 1 plenary.',
 			options: [
 				{
 					type: 'textinput',
 					id: 'url',
-					label: 'Google Slides link, or master: and a name',
+					label: 'Google Slides link, file path, or master: and a name',
 					default: '',
 					useVariables: true,
 				},
@@ -107,13 +108,13 @@ export function getActions(instance: PresentationPlayerInstance): CompanionActio
 		},
 		refresh: {
 			name: 'Refresh presentation',
-			description: 'Pulls in changes made to the deck in Google Slides, staying on the current slide',
+			description: 'Pulls in changes made to the deck or file, staying on the current slide',
 			options: [],
 			callback: async () => send('refresh'),
 		},
 		closePresentation: {
 			name: 'Close presentation',
-			description: 'Closes the deck; both NDI outputs show the holding screen',
+			description: 'Closes the presentation; both outputs show the holding screen',
 			options: [],
 			callback: async () => send('close'),
 		},

@@ -4,7 +4,7 @@
 	"id": "neriftafu-presentationplayer",
 	"name": "neriftafu-presentationplayer",
 	"shortname": "presentationplayer",
-	"description": "Control Presentation Player: slides, video, speaker notes and output status",
+	"description": "Control Presentation Player (Google Slides, PowerPoint and PDF): slides, video, speaker notes and output status",
 	"version": "0.0.0",
 	"license": "MIT",
 	"repository": "git+https://github.com/bitfocus/companion-module-neriftafu-presentationplayer.git",
@@ -28,5 +28,5 @@
 	},
 	"manufacturer": "neriftafu",
 	"products": ["Presentation Player"],
-	"keywords": ["Presentation", "Google Slides", "Slides", "NDI", "Software"]
+	"keywords": ["Presentation", "Google Slides", "PowerPoint", "PDF", "Slides", "NDI", "Software"]
 }

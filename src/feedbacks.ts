@@ -46,8 +46,8 @@ export function getFeedbacks(instance: PresentationPlayerInstance): CompanionFee
 		},
 		presentationOutOfDate: {
 			type: 'boolean',
-			name: 'Presentation updated in Google Slides',
-			description: 'True when the deck has been edited since it was loaded, until you refresh it',
+			name: 'Presentation has been updated',
+			description: 'True when the deck or file has been edited since it was loaded, until you refresh it',
 			defaultStyle: { bgcolor: AMBER, color: WHITE },
 			options: [],
 			callback: () => !!s()?.outOfDate,

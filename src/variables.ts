@@ -38,7 +38,7 @@ export const variableDefinitions: CompanionVariableDefinitions<VariablesSchema> 
 	skipped_count: { name: 'Number of skipped slides' },
 	google_expired: { name: 'App needs signing in to Google again' },
 	loading: { name: 'Presentation is loading' },
-	out_of_date: { name: 'Presentation has been updated in Google Slides since it was loaded' },
+	out_of_date: { name: 'Presentation has been updated since it was loaded' },
 	notes_size: { name: 'Notes text size in px (the fitted size while auto-fit is on)' },
 	notes_autofit: { name: 'Notes auto-fit is on' },
 	video: { name: 'Current slide has video or audio' },
