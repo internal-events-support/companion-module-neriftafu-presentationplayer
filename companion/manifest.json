@@ -1,32 +1,32 @@
 {
-  "$schema": "../node_modules/@companion-module/base/assets/manifest.schema.json",
-  "type": "connection",
-  "id": "neriftafu-presentationplayer",
-  "name": "neriftafu-presentationplayer",
-  "shortname": "presentationplayer",
-  "description": "Control Presentation Player: slides, video, speaker notes and output status",
-  "version": "0.0.0",
-  "license": "MIT",
-  "repository": "git+https://github.com/internal-events-support/companion-module-neriftafu-presentationplayer.git",
-  "bugs": "https://github.com/internal-events-support/companion-module-neriftafu-presentationplayer/issues",
-  "maintainers": [
-    {
-      "name": "nerif-tafu",
-      "url": "https://github.com/nerif-tafu"
-    },
-    {
-      "name": "Internal Events",
-      "url": "https://github.com/internal-events-support"
-    }
-  ],
-  "legacyIds": ["gslides-ndi-presenter"],
-  "runtime": {
-    "type": "node22",
-    "api": "nodejs-ipc",
-    "apiVersion": "0.0.0",
-    "entrypoint": "../dist/index.js"
-  },
-  "manufacturer": "neriftafu",
-  "products": ["Presentation Player"],
-  "keywords": ["Presentation", "Google Slides", "Slides", "NDI", "Software"]
+	"$schema": "../node_modules/@companion-module/base/assets/manifest.schema.json",
+	"type": "connection",
+	"id": "neriftafu-presentationplayer",
+	"name": "neriftafu-presentationplayer",
+	"shortname": "presentationplayer",
+	"description": "Control Presentation Player: slides, video, speaker notes and output status",
+	"version": "0.0.0",
+	"license": "MIT",
+	"repository": "git+https://github.com/bitfocus/companion-module-neriftafu-presentationplayer.git",
+	"bugs": "https://github.com/bitfocus/companion-module-neriftafu-presentationplayer/issues",
+	"maintainers": [
+		{
+			"name": "nerif-tafu",
+			"url": "https://github.com/nerif-tafu"
+		},
+		{
+			"name": "Internal Events",
+			"url": "https://github.com/internal-events-support"
+		}
+	],
+	"legacyIds": [],
+	"runtime": {
+		"type": "node22",
+		"api": "nodejs-ipc",
+		"apiVersion": "0.0.0",
+		"entrypoint": "../dist/index.js"
+	},
+	"manufacturer": "neriftafu",
+	"products": ["Presentation Player"],
+	"keywords": ["Presentation", "Google Slides", "Slides", "NDI", "Software"]
 }

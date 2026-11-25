@@ -19,7 +19,7 @@ yarn install
 yarn build        # type-check and compile to dist/
 yarn dev          # rebuild on change
 yarn lint
-yarn companion-module-build   # package into a .tgz you can load into Companion
+yarn package      # build and package into a .tgz you can load into Companion
 ```
 
 To try it in Companion, point Companion's developer modules folder at the folder that contains this one, then add a "Presentation Player" connection.
