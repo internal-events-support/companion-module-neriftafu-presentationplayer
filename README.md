@@ -2,7 +2,7 @@
 
 A [Bitfocus Companion](https://bitfocus.io/companion) module for [Presentation Player](https://github.com/internal-events-support/presentation-player), the Windows app that sends a Google Slides deck to NDI as live slides plus a presenter view with speaker notes.
 
-The app used to be called Google Slides NDI Presenter, and so did this module before 2.0.0. Connections made with the old module carry on with this one, and older versions of the app still work.
+The app used to be called Google Slides NDI Presenter, and so did this module before 2.0.0. Older versions of the app still work. Connections made with the old module don't move over by themselves: after importing this one, edit the connection and choose **neriftafu: Presentation Player** as its module version. Its actions, feedbacks, variables and presets stay as they are.
 
 With it you can run the deck from a Stream Deck: next and previous, jump to slides, play videos, change the speaker notes, open and close decks, and see the state of everything on the buttons. See [companion/HELP.md](companion/HELP.md) for the full list of actions, feedbacks, variables and presets.
 
