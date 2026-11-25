@@ -13,6 +13,10 @@
     {
       "name": "nerif-tafu",
       "url": "https://github.com/nerif-tafu"
+    },
+    {
+      "name": "Internal Events",
+      "url": "https://github.com/internal-events-support"
     }
   ],
   "legacyIds": ["gslides-ndi-presenter"],
